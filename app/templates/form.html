@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD EM PYTHON/DJANGO</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="col-8 m-auto pt-2 pb-2 text-center">
+        <h1>Cadastro</h1>
+    </div>
+
+    <div class = "col-8 m-auto pt-2 pb-2 text-center">
+        <a href = "/" class = "btn btn-secondary">Voltar</a>
+    </div>
+
+    <div class = "col-8 m-auto pt-2 pb-2 text-center">
+        <form name="form" id="form" action="{% if db %}/update/{{db.id}}/{%else%}/create/{% endif %}" method="POST">
+            {% csrf_token %} <!-- TAG de proteção para o nosso formulário -->
+        <!--{{form.as_p}} - Assim utilizamos o python dentro do HTML. Mas para deixarmos mais bonito vamos chamar campo por campo--> 
+            <div class="form=group mt-4">Filme: {{form.filme}}</div>
+            <div class="form=group mt-4">Genero: {{form.genero}}</div>
+            <div class="form=group mt-4">Duração: {{form.duracao}} minutos</div>
+            <div> Data de lançamento: <input id="date" type="date" class="form=group mt-4"{{form.data_lancamento}}</div>
+            <div class="form=group mt-4">Diretor(a): {{form.diretor}}</div>
+            <div class="form=group mt-4">Principais Artistas: {{form.principais_artistas}}</div>
+            <input type="submit" class="btn btn-success" value="Salvar">
+        </form>
+    </div>
+
+
+
+</body>
+</html>
+
+
